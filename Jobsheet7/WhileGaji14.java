@@ -16,24 +16,26 @@ public class WhileGaji14 {
         int i = 0;
         //perulangan while
         while (i < jmlKaryawan) {
-            System.out.print("Pilihan jabatan - Direktur, Manajer, Karyawan");
-            System.out.print("\nMasukkan jabatan karyawan ke-" + (i+1) + ": ");
+            System.out.println("Pilihan jabatan - Direktur, Manajer, Karyawan");
+            System.out.print("Masukkan jabatan karyawan ke-" + (i + 1) + ": ");
             jabatan = scan.next();
-            System.out.print("Masukkan jumlah jam lembur: ");
-            jmlJamLembur = scan.nextInt();
-            i++;
-            
-            if (jabatan.equalsIgnoreCase("direktur")) {
-                continue;
-            }else if (jabatan.equalsIgnoreCase("manajer")){
-                gajiLembur = jmlJamLembur * 100000;
-            }else if(jabatan.equalsIgnoreCase("karyawan")){
-                gajiLembur = jmlJamLembur * 75000;
+
+            if (jabatan.equalsIgnoreCase("direktur") || jabatan.equalsIgnoreCase("manajer") || jabatan.equalsIgnoreCase("karyawan")) {
+                System.out.print("Masukkan jumlah jam lembur: ");
+                jmlJamLembur = scan.nextInt();
+
+                if (jabatan.equalsIgnoreCase("manajer")) {
+                    gajiLembur = jmlJamLembur * 100000;
+                } else if (jabatan.equalsIgnoreCase("karyawan")) {
+                    gajiLembur = jmlJamLembur * 75000;
+                }
+
+                totalGajiLembur += gajiLembur;
+                i++;
+            } else {
+                System.out.println("Jabatan invalid");
             }
-
-            totalGajiLembur += gajiLembur;
         }
-
         System.out.print("Total gaji lembur: " + totalGajiLembur);
     }
 }
