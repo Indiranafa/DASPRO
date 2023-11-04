@@ -10,22 +10,78 @@ public class BioskopWithScanner14 {
         String[][] penonton = new String[4][2];
 
         while(true){
-            System.out.print("Masukkan nama: ");
-            nama = sc.nextLine();
-            System.out.print("Masukkan baris: ");
-            baris = sc.nextInt();
-            System.out.print("Masukkan kolom: ");
-            kolom = sc.nextInt();
+
+            System.out.println("Menu: ");
+            System.out.println("1. Input data penonton");
+            System.out.println("2. Tampilkan daftar penonton");
+            System.out.println("3. Exit");
+            System.out.print("Pilih menu (1/2/3): ");
+            int menu = sc.nextInt();
             sc.nextLine();
 
-            penonton[baris-1][kolom-1] = nama;
+            switch (menu) {
+                case 1:
+                    System.out.print("Masukkan nama: ");
+                    nama = sc.nextLine();
+                    boolean validSeat = false;
 
-            System.out.print("Input penonton lainnya? (y/n): ");
-            next = sc.nextLine();
-
-            if (next.equalsIgnoreCase("n")) {
-                break;                
+                    while (!validSeat) {
+                        System.out.print("Masukkan baris: ");
+                        baris = sc.nextInt();
+                        System.out.print("Masukkan kolom: ");
+                        kolom = sc.nextInt();
+                        sc.nextLine();
+                    
+                        if (baris >= 1 && baris <= 4 && kolom >= 1 && kolom <= 2 && penonton[baris - 1][kolom - 1] == null) {
+                            penonton[baris - 1][kolom - 1] = nama;
+                            System.out.println("Data penonton sudah dimasukkan.");
+                            validSeat = true;
+                        } else {
+                            System.out.println("Baris atau kolom tidak valid. Masukkan antara 1 dan 4 untuk baris, dan antara 1 dan 2 untuk kolom.");
+                        }
+                    }
+                    break;
+                case 2:
+                    System.out.println("Daftar Penonton: ");
+                    for (int i = 0; i < penonton.length; i++) {
+                        for (int j = 0; j < penonton[i].length; j++) {
+                            if (penonton[i][j] != null) {
+                                System.out.printf("Baris %d, Kolom %d: %s\n", i + 1, j + 1, penonton[i][j]);
+                            } else {
+                                System.out.printf("Baris %d, Kolom %d: ***\n", i + 1, j + 1);
+                            }
+                        }
+                    }
+                    break;
+                case 3:
+                    System.out.println("Terima kasih!");
+                    System.exit(0);
+                default:
+                    System.out.println("Pilihan menu tidak valid. Silahkan pilih menu 1, 2, atau 3.");
             }
+
+            // System.out.print("Ingin kembali ke menu? (y/n): ");
+            // next = sc.nextLine();
+            // if (next.equalsIgnoreCase("n")) {
+            //     break;                
+            // }
+
+            // System.out.print("Masukkan nama: ");
+            // nama = sc.nextLine();
+            // System.out.print("Masukkan baris: ");
+            // baris = sc.nextInt();
+            // System.out.print("Masukkan kolom: ");
+            // kolom = sc.nextInt();
+            // sc.nextLine();
+
+            // penonton[baris-1][kolom-1] = nama;
+
+            // System.out.print("Input penonton lainnya? (y/n): ");
+            // next = sc.nextLine();
+
+            // if (next.equalsIgnoreCase("n")) {
+            //     break;                
+            // }
         }
     }
 }
