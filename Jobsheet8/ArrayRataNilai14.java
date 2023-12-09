@@ -14,8 +14,9 @@ public class ArrayRataNilai14 {
         double totalTidakLulus = 0;
         int jmlLulus = 0;
         int jmlTidakLulus = 0;
-        double rata2;
-
+        double lulus;
+        double tidaklulus;
+        // double rata2;
 
         for (int i = 0; i < nilaiMhs.length; i++){
             System.out.print("Masukkan nilai mahasiswa ke-" +(i+1)+ " : ");
@@ -35,6 +36,20 @@ public class ArrayRataNilai14 {
 
         System.out.println("Rata-rata nilai lulus = " + rataLulus);
         System.out.println("Rata-rata nilai tidak lulus = " + rataTidakLulus);
+
+        // if (jmlLulus>0) {
+        //     lulus=totalLulus/jmlLulus;
+        //     System.out.println("Rata-rata nilai lulus = " + lulus);
+        // }else{
+        //     System.out.println("0");
+        // }
+
+        // if (jmlLulus > 0) {
+        //     tidaklulus=totalTidakLulus/jmlLulus;
+        //     System.out.println("Rata-rata nilai tidak lulus = " + tidaklulus);
+        // }else{
+        //     System.out.println("0");
+        // }
 
         // for (int i = 0; i < nilaiMhs.length; i++){
         //     total += nilaiMhs[i];
